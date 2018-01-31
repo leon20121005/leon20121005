@@ -1,0 +1,13 @@
+body,input,button,select,textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", "微软雅黑", "メイリオ", "맑은 고딕", sans-serif;
+    font-size: 100%;
+}
+
+#nav {
+    opacity: 0.8;
+    position: fixed;
+    width: 100%;
+    /* 原本height是56px，上下padding是8px */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
