@@ -1,13 +1,24 @@
-body,input,button,select,textarea {
+body,input,button,select,textarea
+{
     font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", "微软雅黑", "メイリオ", "맑은 고딕", sans-serif;
     font-size: 100%;
 }
 
-#nav {
+#nav
+{
     opacity: 0.8;
     position: fixed;
     width: 100%;
-    /* 原本height是56px，上下padding是8px */
+    /* height是56px不變。畫面在上方時上下padding為20px */
     padding-top: 20px;
     padding-bottom: 20px;
+    /* 上下padding改變的轉場時間為0.8秒 */
+    transition: all 0.8s;
+}
+
+#nav.animated
+{
+    /* 畫面滾動到下方時上下padding改為8px */
+    padding-top: 8px;
+    padding-bottom: 8px;
 }

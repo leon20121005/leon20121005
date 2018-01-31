@@ -101,32 +101,22 @@
         window.onload = function()
         {
             populateTable();
-        };
 
-        // 滾動畫面時根據滾動高度是否超過920來更改Navbar長度
-        window.onscroll = function()
-        {
-            if ($(window).scrollTop() > 920)
+            // Get the height of the window and use it to fix the height of caption-background
+            var windowHeight = $(window).height();
+            $("#caption-background").css("height", windowHeight);
+
+            window.onscroll = function()
             {
-                if ($("#nav").css("padding-top") == "20px")
-                {
-                    $("#nav").animate({"padding-top": "8px", "padding-bottom": "8px"}, 800);
-                }
-            }
-            else
-            {
-                if ($("#nav").css("padding-top") == "8px")
-                {
-                    $("#nav").animate({"padding-top": "20px", "padding-bottom": "20px"}, 800);
-                }
-            }
+                animateNavbar(windowHeight)
+            };
         };
 
         function populateTable()
         {
             // Find the <table> element with id="table"
             var table = document.getElementById("table");
-            var body = document.getElementsByTagName("tbody")[0]
+            var body = document.getElementsByTagName("tbody")[0];
 
             for (i = 0; i < 80; i++)
             {
@@ -137,6 +127,19 @@
                 var th = document.createElement("th");
                 th.innerHTML = i + 1;
                 row.appendChild(th);
+            }
+        }
+
+        //滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改Navbar長度
+        function animateNavbar(windowHeight)
+        {
+            if ($(window).scrollTop() > (windowHeight - 80))
+            {
+                $("#nav").addClass("animated");
+            }
+            else
+            {
+                $("#nav").removeClass("animated");
             }
         }
     </script>
