@@ -62,7 +62,7 @@
             </div>
         </nav>
 
-        <div id="caption-background" style="background-color:rgb(138, 218, 255); height: 1000px">
+        <div id="caption-background" style="background-color:rgb(170, 210, 255); height: 1000px">
         </div>
 
         <table id="table" class="table">
@@ -101,6 +101,25 @@
         window.onload = function()
         {
             populateTable();
+        };
+
+        // 滾動畫面時根據滾動高度是否超過920來更改Navbar長度
+        window.onscroll = function()
+        {
+            if ($(window).scrollTop() > 920)
+            {
+                if ($("#nav").css("padding-top") == "20px")
+                {
+                    $("#nav").animate({"padding-top": "8px", "padding-bottom": "8px"}, 800);
+                }
+            }
+            else
+            {
+                if ($("#nav").css("padding-top") == "8px")
+                {
+                    $("#nav").animate({"padding-top": "20px", "padding-bottom": "20px"}, 800);
+                }
+            }
         };
 
         function populateTable()
