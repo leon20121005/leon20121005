@@ -32,13 +32,13 @@
                         <a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">文章列表</a>
+                        <a class="nav-link" href="#list">文章列表</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">關於</a>
+                        <a class="nav-link" href="#about">關於</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">聯絡資訊</a>
+                        <a class="nav-link" href="#contact">聯絡資訊</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,39 +62,46 @@
             </div>
         </nav>
 
-        <div id="caption-background" style="background-color:rgb(170, 210, 255); height: 1000px">
+        <div id="caption-background" style="background-color: rgb(170, 210, 255); height: 1000px;">
         </div>
 
-        <table id="table" class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr> -->
-            </tbody>
-        </table>
+        <div id="list">
+            <div class="container">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="about" style="height: 500px">
+            <hr>
+            <div class="container">
+                <h2>關於</h2>
+            </div>
+        </div>
+
+        <div id="contact" style="height: 500px">
+            <hr>
+            <div class="container">
+                <h2>聯絡資訊</h2>
+                <ul>
+                    <li>離散餘弦變換（英語：discrete cosine transform, DCT）是與傅立葉變換相關的一種變換，類似於離散傅立葉變換，但是只使用實數。</li>
+                    <li>離散餘弦變換相當於一個長度大概是它兩倍的離散傅立葉變換，這個離散傅立葉變換是對一個實偶函數進行的（因為一個實偶函數的傅立葉變換仍然是一個實偶函數）。</li>
+                    <li>在有些變形裡面需要將輸入或者輸出的位置移動半個單位（DCT有8種標準類型，其中4種是常見的）。</li>
+                    <li>最常用的一種離散餘弦變換的類型是下面給出的第二種類型，通常我們所說的離散餘弦變換指的就是這種。</li>
+                    <li>它的逆，也就是下面給出的第三種類型，通常相應的被稱為"反離散餘弦變換"，"逆離散餘弦變換"或者"IDCT"。</li>
+                    <li>有兩個相關的變換，一個是離散正弦變換，它相當於一個長度大概是它兩倍的實奇函數的離散傅立葉變換；另一個是改進的離散餘弦變換，它相當於對交疊的數據進行離散餘弦變換。</li>
+                </ul>
+            </div>
+        </div>
     </body>
 
     <script>
