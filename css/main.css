@@ -1,4 +1,4 @@
-body,input,button,select,textarea
+body, input, button, select, textarea
 {
     font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", "微软雅黑", "メイリオ", "맑은 고딕", sans-serif;
     font-size: 100%;
@@ -14,6 +14,8 @@ body,input,button,select,textarea
     padding-bottom: 20px;
     /* 上下padding改變的轉場時間為0.8秒 */
     transition: all 0.8s;
+    /* 設定z-index: 1讓#nav在最上層 */
+    z-index: 1;
 }
 
 #nav.animated
@@ -26,6 +28,12 @@ body,input,button,select,textarea
 hr
 {
     border-top: 1px solid #E2E2E2;
+}
+
+#list > hr
+{
+    /* 設定#list的子元素hr，讓其上方的margin為0 */
+    margin-top: 0px;
 }
 
 /* 讓游標移動到.dropdown時自動顯示.dropdown-menu */

@@ -56,7 +56,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
@@ -65,18 +65,44 @@
         </div>
 
         <div id="list">
+            <hr>
             <div class="container">
-                <table id="table" class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                <h2>文章列表</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">十六碳三烯酸</h5>
+                        <p class="card-text">英文普通名：Hexadecatrienoic acid (HTA)</p>
+                        <a href="#" class="btn btn-info float-right">More...</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">α-亞麻酸</h5>
+                        <p class="card-text">英文普通名：α-Linolenic acid (ALA)</p>
+                        <a href="#" class="btn btn-info float-right">More...</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">二十碳三烯酸</h5>
+                        <p class="card-text">英文普通名：Eicosatrienoic acid (ETE)</p>
+                        <a href="#" class="btn btn-info float-right">More...</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">二十一碳五烯酸</h5>
+                        <p class="card-text">英文普通名：Heneicosapentaenoic acid (HPA)</p>
+                        <a href="#" class="btn btn-info float-right">More...</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">二十二碳五烯酸</h5>
+                        <p class="card-text">英文普通名：Docosapentaenoic acid (DPA), Clupanodonic acid</p>
+                        <a href="#" class="btn btn-info float-right">More...</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -106,8 +132,6 @@
     <script>
         window.onload = function()
         {
-            populateTable();
-
             // Get the height of the window and use it to fix the height of caption-background
             var windowHeight = $(window).height();
             $("#caption-background").css("height", windowHeight);
@@ -117,24 +141,6 @@
                 animateNavbar(windowHeight)
             };
         };
-
-        function populateTable()
-        {
-            // Find the <table> element with id="table"
-            var table = document.getElementById("table");
-            var body = document.getElementsByTagName("tbody")[0];
-
-            for (i = 0; i < 80; i++)
-            {
-                // Create an empty <tr> element and add it to the i-st position of the table
-                var row = document.createElement("tr");
-                body.appendChild(row);
-
-                var th = document.createElement("th");
-                th.innerHTML = i + 1;
-                row.appendChild(th);
-            }
-        }
 
         //滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改Navbar長度
         function animateNavbar(windowHeight)
