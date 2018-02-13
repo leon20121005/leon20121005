@@ -68,6 +68,8 @@
             <hr>
             <div class="container">
                 <h2>文章列表</h2>
+
+                <div id="list-container"></div>
             </div>
         </div>
 
@@ -110,23 +112,20 @@
     </body>
 
     <script>
-        window.onload = function()
-        {
             // Get the height of the window and use it to fix the height of caption-background
             var windowHeight = $(window).height();
             $("#caption-background").css("height", windowHeight);
 
             window.onscroll = function()
             {
-                animateNavbar(windowHeight)
+            animateNavbar(windowHeight);
             };
 
             // Load JSON-encoded artitle data to initialize list
             $.getJSON("json/list.json", function(data)
             {
-                initializeList(data)
+            initializeList(data);
             });
-        };
 
         //滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改Navbar長度
         function animateNavbar(windowHeight)
@@ -145,12 +144,11 @@
         {
             for (index = 0; index < data.length; index++)
             {
-                var listContainer = $("#list").find(".container");
                 var listItem = '<div class="card"><div class="card-body">';
                 listItem += '<h5 class="card-title">' + data[index].title + '</h5>';
                 listItem += '<p class="card-text">' + data[index].text + '</p>';
                 listItem += '<a href="#" class="btn btn-outline-info float-right">More...</a></div></div>';
-                listContainer.append(listItem);
+                $("#list-container").append(listItem);
             }
         }
 
