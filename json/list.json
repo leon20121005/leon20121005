@@ -8,8 +8,20 @@
         "text": "英文普通名：α-Linolenic acid (ALA)"
     },
     {
+        "title": "硬脂四烯酸",
+        "text": "英文普通名：Stearidonic acid (SDA)"
+    },
+    {
         "title": "二十碳三烯酸",
         "text": "英文普通名：Eicosatrienoic acid (ETE)"
+    },
+    {
+        "title": "二十碳四烯酸",
+        "text": "英文普通名：Eicosatetraenoic acid (ETA)"
+    },
+    {
+        "title": "二十碳五烯酸",
+        "text": "英文普通名：Eicosapentaenoic acid (EPA)"
     },
     {
         "title": "二十一碳五烯酸",
@@ -18,5 +30,17 @@
     {
         "title": "二十二碳五烯酸",
         "text": "英文普通名：Docosapentaenoic acid (DPA), Clupanodonic acid"
+    },
+    {
+        "title": "二十二碳六烯酸",
+        "text": "英文普通名：Docosahexaenoic acid (DHA)"
+    },
+    {
+        "title": "二十四碳五烯酸",
+        "text": "英文普通名：Tetracosapentaenoic acid"
+    },
+    {
+        "title": "二十四碳六烯酸",
+        "text": "英文普通名：Tetracosahexaenoic acid (Nisinic acid)"
     }
 ]

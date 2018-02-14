@@ -70,6 +70,14 @@
                 <h2>文章列表</h2>
 
                 <div id="list-container"></div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link">1</a></li>
+                        <li class="page-item"><a class="page-link">2</a></li>
+                        <li class="page-item"><a class="page-link">3</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
 
@@ -121,12 +129,6 @@
             animateNavbar(windowHeight);
         };
 
-        // Load JSON-encoded artitle data to initialize list
-        $.getJSON("json/list.json", function(data)
-        {
-            initializeList(data);
-        });
-
         //滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改Navbar長度
         function animateNavbar(windowHeight)
         {
@@ -140,18 +142,6 @@
             }
         }
 
-        function initializeList(data)
-        {
-            for (index = 0; index < data.length; index++)
-            {
-                var listItem = '<div class="card"><div class="card-body">';
-                listItem += '<h5 class="card-title">' + data[index].title + '</h5>';
-                listItem += '<p class="card-text">' + data[index].text + '</p>';
-                listItem += '<a href="#" class="btn btn-outline-info float-right">More...</a></div></div>';
-                $("#list-container").append(listItem);
-            }
-        }
-
         //點擊Navbar的連結.nav-link時讓畫面滾動到該區域的位置，Easing函數是easeInOutExpo
         $(".nav-link").click(function()
         {
@@ -161,5 +151,35 @@
                 $("html, body").animate({scrollTop: $(target).offset().top - 56}, 2000, "easeInOutExpo");
             }
         });
+
+        // Load JSON-encoded artitle data to initialize list
+        $.getJSON("json/list.json", function(data)
+        {
+            var currentIndex = 1;
+            showListItem(currentIndex, data);
+
+            //點擊分頁標籤時取得分頁標籤的文本內容(即分頁數)，並再次呼叫showListItem()
+            $(".page-link").click(function()
+            {
+                currentIndex = $(this).text();
+                showListItem(currentIndex, data);
+            })
+        });
+
+        function showListItem(currentIndex, data)
+        {
+            //清空文章列表的容器
+            $("#list-container").html("");
+
+            //依據currentIndex來產生對應範圍的文章列表項目
+            for (index = currentIndex * 5 - 5; index < Math.min(currentIndex * 5, data.length); index++)
+            {
+                var listItem = '<div class="card"><div class="card-body">';
+                listItem += '<h5 class="card-title">' + data[index].title + '</h5>';
+                listItem += '<p class="card-text">' + data[index].text + '</p>';
+                listItem += '<a href="#" class="btn btn-outline-info float-right">More...</a></div></div>';
+                $("#list-container").append(listItem);
+            }
+        }
     </script>
 </html>
