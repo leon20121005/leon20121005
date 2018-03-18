@@ -43,15 +43,26 @@ body, input, button, select, textarea
     padding-bottom: 8px;
 }
 
-hr
+.nav-item
 {
-    border-top: 1px solid #E2E2E2;
+    width: 80px;
 }
 
-#list > hr
+#list > hr, #about > hr, #contact > hr
 {
     /* 設定#list的子元素hr，讓其上方的margin為0 */
-    margin-top: 0px;
+    margin: 0px
+}
+
+#list h2, #about h2, #contact h2
+{
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+#footer
+{
+    font-size: 14px;
 }
 
 /* 讓游標移動到.dropdown時自動顯示.dropdown-menu */

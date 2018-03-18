@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Page Title</title>
+
+        <!-- 載入Bootstrap的CSS以及JavaScript -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- 載入自己寫的CSS以及JavaScript -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/archive.html">歸檔</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/category.html">分類</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/about.html">關於<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="cover" style="height: 80px;"></div>
+
+        <div id="about" style="height: 500px;">
+            <hr>
+            <div class="container">
+                <h2>關於</h2>
+                <ul>
+                    <li>響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。</li>
+                    <li>是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。</li>
+                    <li>對於網站設計師和前端工程師來說，有別於過去需要針對各種裝置進行不同的設計，使用此種設計方式將更易於維護網頁。</li>
+                    <li>此概念於2010年5月由國外著名網頁設計師Ethan Marcotte所提出。</li>
+                    <li>採用 RWD 設計的網站使用CSS3 Media queries，即一種對 @media 規則的擴充功能，以及串流的基於比例的網格和自適應大小的圖像以適應不同大小的裝置：</li>
+                    <li>串流網格概念要求頁面元素使用相對單位如百分比或字型排印學調整大小，而不是絕對的單位如像素或點。</li>
+                    <li>靈活的圖像也以相對單位調整大小（最大到 100%），以防止它們顯示在包含它們的元素外面。</li>
+                    <li>Media queries允許網頁根據存取站點裝置的特點而使用不同 CSS 樣式規則，最常用的是瀏覽器的寬度。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="contact" style="height: 500px;">
+            <hr>
+            <div class="container">
+                <h2>聯絡資訊</h2>
+                <ul>
+                    <li>離散餘弦變換（英語：discrete cosine transform, DCT）是與傅立葉變換相關的一種變換，類似於離散傅立葉變換，但是只使用實數。</li>
+                    <li>離散餘弦變換相當於一個長度大概是它兩倍的離散傅立葉變換，這個離散傅立葉變換是對一個實偶函數進行的（因為一個實偶函數的傅立葉變換仍然是一個實偶函數）。</li>
+                    <li>在有些變形裡面需要將輸入或者輸出的位置移動半個單位（DCT有8種標準類型，其中4種是常見的）。</li>
+                    <li>最常用的一種離散餘弦變換的類型是下面給出的第二種類型，通常我們所說的離散餘弦變換指的就是這種。</li>
+                    <li>它的逆，也就是下面給出的第三種類型，通常相應的被稱為"反離散餘弦變換"，"逆離散餘弦變換"或者"IDCT"。</li>
+                    <li>有兩個相關的變換，一個是離散正弦變換，它相當於一個長度大概是它兩倍的實奇函數的離散傅立葉變換；另一個是改進的離散餘弦變換，它相當於對交疊的數據進行離散餘弦變換。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer" style="height: 48px;">
+            <hr>
+            <div id="license" class="text-center">Copyright 2018 | <a href="https://github.com/leon20121005">Leon20121005</a> All Rights Reserved.</div>
+        </div>
+    </body>
+
+    <script>
+        $(window).scroll(function()
+        {
+            animateNavbar();
+        });
+
+        //滾動畫面時根據滾動高度是否超過0來更改Navbar高度
+        function animateNavbar()
+        {
+            if ($(window).scrollTop() > 0)
+            {
+                $("#nav").addClass("animated");
+            }
+            else
+            {
+                $("#nav").removeClass("animated");
+            }
+        }
+    </script>
+</html>
