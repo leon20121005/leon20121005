@@ -23,7 +23,7 @@
     <body>
         <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/index.html">Navbar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,14 +47,12 @@
             </div>
         </nav>
 
-        <div id="caption-background" style="background-color: rgb(170, 210, 255); height: 1000px;">
+        <div id="image-cover" style="background-color: rgb(170, 210, 255); height: 1000px;">
         </div>
 
         <div id="list">
             <hr>
             <div class="container">
-                <h2>文章列表</h2>
-
                 <div id="list-container" style="height: 780px;"></div>
 
                 <nav aria-label="Page navigation example">
@@ -83,7 +81,7 @@
 
         //載入畫面時取得畫面高度，並以此修正首頁畫面圖片的高度
         var windowHeight = $(window).height();
-        $("#caption-background").css("height", windowHeight);
+        $("#image-cover").css("height", windowHeight);
 
         $(window).scroll(function()
         {
