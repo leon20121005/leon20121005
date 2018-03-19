@@ -77,6 +77,22 @@ body, input, button, select, textarea
     margin-bottom: 24px;
 }
 
+#back-to-top-button
+{
+    background: #343a40;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 48px;
+    right: 48px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 #footer
 {
     font-size: 14px;

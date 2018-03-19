@@ -18,6 +18,8 @@
         <script src="js/main.js"></script>
 
         <script src="js/jquery.easing.1.3.js"></script>
+
+        <link rel="stylesheet" href="lib/fontawesome-free-5.0.8/css/fontawesome-all.min.css" />
     </head>
 
     <body>
@@ -66,6 +68,10 @@
             </div>
         </div>
 
+        <div id="back-to-top-button" href="#image-cover" style="display: none;">
+            <i class="fas fa-angle-up"></i>
+        </div>
+
         <div id="footer" style="height: 48px;">
             <hr>
             <div id="license" class="text-center">Copyright 2018 | <a href="https://github.com/leon20121005">Leon20121005</a> All Rights Reserved.</div>
@@ -83,11 +89,14 @@
         //載入畫面時取得畫面高度，並以此修正首頁畫面圖片的高度
         var windowHeight = $(window).height();
         $("#image-cover").css("height", windowHeight);
+        right = ($(window).width() - $(".container").outerWidth()) / 2;
+        $("#back-to-top-button").css("right", right - 120);
 
         $(window).scroll(function()
         {
             animateNavbar(windowHeight);
             fadeInListItem();
+            showBackToTopButton();
         });
 
         //滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改Navbar高度
@@ -111,13 +120,32 @@
             }
         }
 
+        function showBackToTopButton()
+        {
+            if ($(window).scrollTop() > 20)
+            {
+                $("#back-to-top-button").fadeIn(800);
+            }
+            else
+            {
+                $("#back-to-top-button").fadeOut(800);
+            }
+        }
+
         //點擊Button的連結時讓畫面滾動到文章列表的位置，Easing函數是easeInOutExpo
-        $("#welcome-button").click(function()
+        $("#welcome-button, #back-to-top-button").click(function()
         {
             var target = $(this).attr("href");
             if (target != "#")
             {
-                $("html, body").animate({scrollTop: $(target).offset().top - 56}, 2000, "easeInOutExpo");
+                if ($(target).offset().top - 56 > 0)
+                {
+                    $("html, body").animate({scrollTop: $(target).offset().top - 56}, 2000, "easeInOutExpo");
+                }
+                else
+                {
+                    $("html, body").animate({scrollTop: 0}, 2000, "easeInOutExpo");               
+                }
             }
         });
 
@@ -144,7 +172,7 @@
             //依據currentIndex來產生對應範圍的文章列表項目
             for (index = currentIndex * 5 - 5; index < Math.min(currentIndex * 5, data.length); index++)
             {
-                var listItem = '<div class="card" style="display:none;"><div class="card-body">';
+                var listItem = '<div class="card" style="display: none;"><div class="card-body">';
                 listItem += '<h5 class="card-title">' + data[index].title + '</h5>';
                 listItem += '<p class="card-text">' + data[index].text + '</p>';
                 listItem += '<a href="#" class="btn btn-outline-info float-right">More...</a></div></div>';
