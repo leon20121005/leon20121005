@@ -48,6 +48,18 @@ body, input, button, select, textarea
     width: 80px;
 }
 
+#image-cover
+{
+    background-size: cover;
+    text-align: center;
+    line-height: 1000px;
+}
+
+.btn.sharp
+{
+    border-radius: 0;
+}
+
 #list > hr
 {
     /* 設定#list的子元素hr，讓其上方的margin為0 */

@@ -47,7 +47,8 @@
             </div>
         </nav>
 
-        <div id="image-cover" style="background-color: rgb(170, 210, 255); height: 1000px;">
+        <div id="image-cover" style="background-image: url('img/cover.jpg'); height: 1000px;">
+            <button id="welcome-button" type="button" class="btn btn-outline-light btn-lg sharp" href="#list">Welcome</button>
         </div>
 
         <div id="list">
@@ -109,6 +110,16 @@
                 $(".card").fadeIn(800);
             }
         }
+
+        //點擊Button的連結時讓畫面滾動到文章列表的位置，Easing函數是easeInOutExpo
+        $("#welcome-button").click(function()
+        {
+            var target = $(this).attr("href");
+            if (target != "#")
+            {
+                $("html, body").animate({scrollTop: $(target).offset().top - 56}, 2000, "easeInOutExpo");
+            }
+        });
 
         //載入文章列表的JSON檔，載入成功之後呼叫createListItem()來產生文章列表項目
         $.getJSON("json/list.json", function(data)
