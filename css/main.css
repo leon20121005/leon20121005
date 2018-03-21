@@ -71,6 +71,11 @@ body, input, button, select, textarea
     margin: 0px;
 }
 
+#footer > hr
+{
+    margin-bottom: 0px;
+}
+
 #list h2, #about h2, #contact h2
 {
     margin-top: 24px;
@@ -102,4 +107,5 @@ body, input, button, select, textarea
 #footer
 {
     font-size: 14px;
+    line-height: 48px;
 }
