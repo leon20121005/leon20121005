@@ -58,11 +58,7 @@
                 <div id="list-container" style="height: 780px;"></div>
 
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link">1</a></li>
-                        <li class="page-item"><a class="page-link">2</a></li>
-                        <li class="page-item"><a class="page-link">3</a></li>
-                    </ul>
+                    <ul id="page-container" class="pagination justify-content-center"></ul>
                 </nav>
             </div>
         </div>
@@ -157,6 +153,7 @@
         {
             var currentIndex = 1;
             createListItem(currentIndex, data);
+            createPageItem(data);
 
             // 點擊分頁標籤時取得分頁標籤的文本內容(即分頁數)，並再次呼叫createListItem()
             $(".page-link").click(function()
@@ -180,6 +177,15 @@
                 listItem += '<p class="card-text">' + data[index].text + '</p>';
                 listItem += '<a href="#" class="btn btn-outline-info float-right sharp">More...</a></div></div>';
                 $("#list-container").append(listItem);
+            }
+        }
+
+        function createPageItem(data)
+        {
+            for (index = 0; index < data.length / 5; index++)
+            {
+                var pageItem = '<li class="page-item"><a class="page-link">' + (index + 1) + '</a></li>';
+                $("#page-container").append(pageItem);
             }
         }
     </script>
