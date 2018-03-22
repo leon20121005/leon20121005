@@ -76,7 +76,7 @@ body, input, button, select, textarea
     margin-bottom: 0px;
 }
 
-#list h2, #about h2, #contact h2
+#list h3, #about h3, #contact h3
 {
     margin-top: 24px;
     margin-bottom: 24px;
@@ -108,4 +108,10 @@ body, input, button, select, textarea
 {
     font-size: 14px;
     line-height: 48px;
+}
+
+.category-list-item
+{
+    margin: 12px;
+    list-style-type: none;
 }
