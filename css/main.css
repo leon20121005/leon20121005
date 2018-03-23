@@ -64,27 +64,30 @@ body, input, button, select, textarea
 {
     /* 設定#list的子元素hr，讓其上方的margin為0 */
     margin-top: 0px;
+    margin-bottom: 24px;
 }
 
-#archive > hr, #category > hr, #about > hr, #contact > hr
+#archive > hr, #category > hr, #about > hr, #contact > hr, #footer > hr
 {
     margin: 0px;
 }
 
-#footer > hr
-{
-    margin-bottom: 0px;
-}
-
 #list h3, #archive h3, #category h3, #about h3, #contact h3
 {
-    margin-top: 24px;
     margin-bottom: 24px;
+    padding-top: 24px;
 }
 
 .card
 {
     display: none;
+}
+
+#page-container
+{
+    margin-bottom: 0px;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 #back-to-top-button
@@ -124,4 +127,14 @@ body, input, button, select, textarea
 .archive-list-item-link:hover
 {
     color: #343a40;
+}
+
+body
+{
+    background-color: #f7f7f7;
+}
+
+.container.content-wrap
+{
+    background-color: #ffffff;
 }
