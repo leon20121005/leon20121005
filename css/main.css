@@ -115,3 +115,13 @@ body, input, button, select, textarea
     margin: 24px;
     list-style-type: none;
 }
+
+.archive-list-item-link
+{
+    color: #343a40;
+}
+
+.archive-list-item-link:hover
+{
+    color: #343a40;
+}
