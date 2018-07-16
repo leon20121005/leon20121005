@@ -54,8 +54,7 @@
 
         <div class="container content-wrap">
             <div id="list">
-                <hr>
-                <div id="list-container" style="height: 780px;"></div>
+                <ul id="list-container" style="height: 770px;"></ul>
 
                 <nav aria-label="Page navigation example">
                     <ul id="page-container" class="pagination justify-content-center"></ul>
@@ -127,7 +126,7 @@
         {
             if ($(window).scrollTop() > 100)
             {
-                $(".card").fadeIn(800).css("display", "flex");
+                $(".list-item").fadeIn(800).css("display", "block");
             }
         }
 
@@ -172,10 +171,14 @@
             // 依據currentIndex來產生對應範圍的文章列表項目
             for (index = currentIndex * 5 - 5; index < Math.min(currentIndex * 5, data.length); index++)
             {
-                var listItem = '<div class="card"><div class="card-body">';
-                listItem += '<h5 class="card-title">' + data[index].title + '</h5>';
-                listItem += '<p class="card-text">' + data[index].text + '</p>';
-                listItem += '<a href="#" class="btn btn-outline-info float-right sharp">More...</a></div></div>';
+                var listItem = '<li class="list-item">';
+                listItem += '<h5>' + data[index].title + '</h5>';
+                listItem += '<p>' + data[index].text + '</p>';
+                listItem += '<div class="list-item-footer">';
+                listItem += '<span>2018 / 07 / 14</span>';
+                listItem += '<span style="margin: 0px 5px;">|</span>';
+                listItem += '<span>Android</span>';
+                listItem += '<a href="#" class="btn btn-outline-info float-right sharp btn-sm">Read More...</a></div></li>';
                 $("#list-container").append(listItem);
             }
         }

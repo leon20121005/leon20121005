@@ -60,13 +60,6 @@ body, input, button, select, textarea
     border-radius: 0;
 }
 
-#list > hr
-{
-    /* 設定#list的子元素hr，讓其上方的margin為0 */
-    margin-top: 0px;
-    margin-bottom: 24px;
-}
-
 #archive > hr, #category > hr, #about > hr, #contact > hr, #footer > hr
 {
     margin: 0px;
@@ -86,8 +79,8 @@ body, input, button, select, textarea
 #page-container
 {
     margin-bottom: 0px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #back-to-top-button
@@ -137,4 +130,33 @@ body
 .container.content-wrap
 {
     background-color: #ffffff;
+}
+
+#list-container
+{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.list-item
+{
+    display: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 30px;
+}
+
+.list-item h5
+{
+    margin-bottom: 0px;
+}
+
+.list-item p
+{
+    margin: 12px 0px 12px 0px;
+}
+
+.list-item-footer
+{
+    font-size: 14px;
 }
