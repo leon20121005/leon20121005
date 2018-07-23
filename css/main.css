@@ -48,13 +48,6 @@ body, input, button, select, textarea
     width: 80px;
 }
 
-#image-cover
-{
-    background-size: cover;
-    line-height: 1000px;
-    text-align: center;
-}
-
 .btn.sharp
 {
     border-radius: 0;
@@ -74,13 +67,6 @@ body, input, button, select, textarea
 .card
 {
     display: none;
-}
-
-#page-container
-{
-    margin-bottom: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 #back-to-top-button
@@ -106,22 +92,6 @@ body, input, button, select, textarea
     line-height: 48px;
 }
 
-.category-list-item, .archive-list-item
-{
-    margin: 24px;
-    list-style-type: none;
-}
-
-.archive-list-item-link
-{
-    color: #343a40;
-}
-
-.archive-list-item-link:hover
-{
-    color: #343a40;
-}
-
 body
 {
     background-color: #f7f7f7;
@@ -130,33 +100,4 @@ body
 .container.content-wrap
 {
     background-color: #ffffff;
-}
-
-#list-container
-{
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-}
-
-.list-item
-{
-    display: none;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    padding: 30px;
-}
-
-.list-item h5
-{
-    margin-bottom: 0px;
-}
-
-.list-item p
-{
-    margin: 12px 0px 12px 0px;
-}
-
-.list-item-footer
-{
-    font-size: 14px;
 }
