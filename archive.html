@@ -52,7 +52,7 @@
         <div id="cover" style="height: 80px;"></div>
 
         <div class="container content-wrap">
-            <div id="archive" style="height: 640px;">
+            <div id="archive">
                 <h3>歸檔</h3>
                 <ul id="archive-list-container"></ul>
             </div>
@@ -134,8 +134,10 @@
         {
             for (index = 0; index < data.length; index++)
             {
-                var listItem = '<li class="archive-list-item"><a class="archive-list-item-link" href="https://github.com/leon20121005">';
-                listItem += data[index].date + ' ' + data[index].title + '</a></li>';
+                var listItem = '<hr><li class="archive-list-item">';
+                listItem += '<a class="archive-list-item-link" href="https://github.com/leon20121005">';
+                listItem += '<span>' + data[index].date + '</span>';
+                listItem += '<span style="padding-left: 16px;">' + data[index].title + '</span></a></li>';
                 $("#archive-list-container").append(listItem);
             }
         }

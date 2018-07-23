@@ -1,7 +1,17 @@
+#archive-list-container
+{
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+#archive-list-container hr
+{
+    margin: 0px;
+}
+
 .archive-list-item
 {
-    margin: 24px;
-    list-style-type: none;
+    padding: 24px;
 }
 
 .archive-list-item-link
