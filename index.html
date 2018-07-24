@@ -16,6 +16,7 @@
         <!-- 載入自己寫的CSS以及JavaScript -->
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/loader.css" />
         <script src="js/main.js"></script>
 
         <link rel="stylesheet" href="lib/fontawesome-free-5.0.8/css/fontawesome-all.min.css" />
@@ -23,6 +24,10 @@
     </head>
 
     <body>
+        <div id="loader">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+
         <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/index.html">Navbar</a>
@@ -79,6 +84,8 @@
 
         $(window).ready(function()
         {
+            $("#loader").fadeOut(1600);
+
             showListItem();
 
             // 取得畫面高度，並以此修正首頁封面圖片的高度以及welcome-button的位置
