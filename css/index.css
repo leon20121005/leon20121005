@@ -5,35 +5,6 @@
     text-align: center;
 }
 
-#list-container
-{
-    margin-bottom: 0px;
-    padding-left: 0px;
-    list-style: none;
-}
-
-.list-item
-{
-    display: none;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    padding: 30px;
-}
-
-.list-item h5
-{
-    margin-bottom: 0px;
-}
-
-.list-item p
-{
-    margin: 12px 0px 12px 0px;
-}
-
-.list-item-footer
-{
-    font-size: 14px;
-}
-
 #page-container
 {
     margin-bottom: 0px;

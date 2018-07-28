@@ -15,9 +15,8 @@
 
         <!-- 載入自己寫的CSS以及JavaScript -->
         <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/loader.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/css/list.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/css/category.css" />
         <script src="/js/main.js"></script>
 
         <link rel="stylesheet" href="/lib/fontawesome-free-5.0.8/css/fontawesome-all.min.css" />
@@ -25,10 +24,6 @@
     </head>
 
     <body>
-        <div id="loader">
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-        </div>
-
         <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">Navbar</a>
@@ -38,14 +33,14 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">首頁<span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">首頁</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/archive.html">歸檔</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/categories">分類</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/categories">分類<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about.html">關於</a>
@@ -55,21 +50,16 @@
             </div>
         </nav>
 
-        <div id="image-cover" style="background-image: url('img/cover.jpg'); height: 1000px;">
-            <button id="welcome-button" type="button" class="btn btn-outline-light btn-lg sharp" href="#list">Welcome</button>
-        </div>
+        <div id="cover" style="height: 80px;"></div>
 
         <div class="container content-wrap">
-            <div id="list">
-                <ul id="list-container" style="height: 770px;"></ul>
-
-                <nav aria-label="Page navigation example">
-                    <ul id="page-container" class="pagination justify-content-center"></ul>
-                </nav>
+            <div id="category">
+                <h3>分類：Chemistry</h3>
+                <ul id="list-container"></ul>
             </div>
         </div>
 
-        <div id="back-to-top-button" href="#image-cover">
+        <div id="back-to-top-button" href="#cover">
             <i class="fas fa-angle-up"></i>
         </div>
 
@@ -80,36 +70,30 @@
     </body>
 
     <script>
-        var windowHeight;
-        var navbarHeight = 80;
-
-        $(window).on("load", function()
+        $(window).ready(function()
         {
-            $("#loader").fadeOut(1600);
-
-            showListItem();
-
-            // 取得畫面高度，並以此修正首頁封面圖片的高度以及welcome-button的位置
-            windowHeight = $(window).height();
-            $("#image-cover").css("height", windowHeight);
-            $("#image-cover").css("line-height", windowHeight + navbarHeight + "px");
-
             // 取得container右邊的位置，並以此再向外推移一點距離放置回到頁首按鈕
             containerRight = ($(window).width() - $(".container").outerWidth()) / 2;
             $("#back-to-top-button").css("right", containerRight - 120);
+
+            showListItem();
         });
 
         $(window).scroll(function()
         {
-            animateNavbar(windowHeight);
+            animateNavbar();
             showBackToTopButton();
-            showListItem();
         });
 
-        // 滾動畫面時根據滾動高度是否超過windowHeight - navbarHeight來更改navbar高度
-        function animateNavbar(windowHeight)
+        function showListItem()
         {
-            if ($(window).scrollTop() >= (windowHeight - navbarHeight))
+            $(".list-item").fadeIn(800).css("display", "block");
+        }
+
+        // 滾動畫面時根據滾動高度是否超過0來更改Navbar高度
+        function animateNavbar()
+        {
+            if ($(window).scrollTop() > 0)
             {
                 $("#nav").addClass("animated");
             }
@@ -131,16 +115,8 @@
             }
         }
 
-        function showListItem()
-        {
-            if ($(window).scrollTop() > 100)
-            {
-                $(".list-item").fadeIn(800).css("display", "block");
-            }
-        }
-
         // 點擊button時讓畫面滾動到超連結的位置，easing函數是easeInOutExpo
-        $("#welcome-button, #back-to-top-button").click(function()
+        $("#back-to-top-button").click(function()
         {
             var target = $(this).attr("href");
             if (target != "#")
@@ -156,48 +132,32 @@
             }
         });
 
-        // 載入文章列表的JSON檔，載入成功之後產生文章列表項目以及分頁項目
-        $.getJSON("json/list.json", function(data)
+        // 載入文章列表的JSON檔，載入成功之後產生歸檔列表
+        $.getJSON("/json/list.json", function(data)
         {
-            var currentIndex = 1;
-            createListItem(currentIndex, data);
-            createPageItem(data);
-
-            // 點擊分頁標籤時取得分頁標籤的文本內容(即分頁數)，並再次呼叫createListItem()
-            $(".page-link").click(function()
-            {
-                currentIndex = $(this).text();
-                createListItem(currentIndex, data);
-                showListItem();
-            })
+            createListItem(data);
         });
 
-        function createListItem(currentIndex, data)
+        function createListItem(data)
         {
             // 清空文章列表的容器
             $("#list-container").html("");
 
             // 依據currentIndex來產生對應範圍的文章列表項目
-            for (index = currentIndex * 5 - 5; index < Math.min(currentIndex * 5, data.length); index++)
+            for (index = 0; index < data.length; index++)
             {
-                var listItem = '<li class="list-item">';
-                listItem += '<h5>' + data[index].title + '</h5>';
-                listItem += '<p>' + data[index].text + '</p>';
-                listItem += '<div class="list-item-footer">';
-                listItem += '<span>2018 / 07 / 14</span>';
-                listItem += '<span style="margin: 0px 5px;">|</span>';
-                listItem += '<span>Android</span>';
-                listItem += '<a href="#" class="btn btn-outline-info float-right sharp btn-sm">Read More...</a></div></li>';
-                $("#list-container").append(listItem);
-            }
-        }
-
-        function createPageItem(data)
-        {
-            for (index = 0; index < data.length / 5; index++)
-            {
-                var pageItem = '<li class="page-item"><a class="page-link">' + (index + 1) + '</a></li>';
-                $("#page-container").append(pageItem);
+                if (data[index].category == "Chemistry")
+                {
+                    var listItem = '<li class="list-item reverse">';
+                    listItem += '<h5>' + data[index].title + '</h5>';
+                    listItem += '<p>' + data[index].text + '</p>';
+                    listItem += '<div class="list-item-footer">';
+                    listItem += '<span>2018 / 07 / 14</span>';
+                    listItem += '<span style="margin: 0px 5px;">|</span>';
+                    listItem += '<span>Android</span>';
+                    listItem += '<a href="#" class="btn btn-outline-info float-right sharp btn-sm">Read More...</a></div></li>';
+                    $("#list-container").append(listItem);
+                }
             }
         }
     </script>

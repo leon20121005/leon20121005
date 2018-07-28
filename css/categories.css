@@ -1,0 +1,25 @@
+#category-list-container
+{
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+#category-list-container hr
+{
+    margin: 0px;
+}
+
+.category-list-item
+{
+    padding: 24px;
+}
+
+.category-list-item-link
+{
+    color: #343a40;
+}
+
+.category-list-item-link:hover
+{
+    color: #343a40;
+}
