@@ -72,60 +72,25 @@
         $(window).ready(function()
         {
             // 取得container右邊的位置，並以此再向外推移一點距離放置回到頁首按鈕
-            containerRight = ($(window).width() - $(".container").outerWidth()) / 2;
-            $("#back-to-top-button").css("right", containerRight - 120);
+            setBackToTopButtonRight();
         });
 
         $(window).scroll(function()
         {
-            animateNavbar();
+            // 滾動畫面時根據滾動高度是否超過0來更改Navbar高度
+            animateNavbar(0);
             showBackToTopButton();
         });
-
-        // 滾動畫面時根據滾動高度是否超過0來更改Navbar高度
-        function animateNavbar()
-        {
-            if ($(window).scrollTop() > 0)
-            {
-                $("#nav").addClass("animated");
-            }
-            else
-            {
-                $("#nav").removeClass("animated");
-            }
-        }
-
-        function showBackToTopButton()
-        {
-            if ($(window).scrollTop() > 20)
-            {
-                $("#back-to-top-button").fadeIn(800);
-            }
-            else
-            {
-                $("#back-to-top-button").fadeOut(800);
-            }
-        }
 
         // 點擊button時讓畫面滾動到超連結的位置，easing函數是easeInOutExpo
         $("#back-to-top-button").click(function()
         {
             var target = $(this).attr("href");
-            if (target != "#")
-            {
-                if ($(target).offset().top - 56 > 0)
-                {
-                    $("html, body").animate({scrollTop: $(target).offset().top - 56}, 2000, "easeInOutExpo");
-                }
-                else
-                {
-                    $("html, body").animate({scrollTop: 0}, 2000, "easeInOutExpo");
-                }
-            }
+            scrollWindow(target);
         });
 
         // 載入文章列表的JSON檔，載入成功之後產生歸檔列表
-        $.getJSON("json/list.json", function(data)
+        $.getJSON("/json/list.json", function(data)
         {
             createArchiveList(data);
         });
