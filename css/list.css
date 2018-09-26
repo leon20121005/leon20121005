@@ -22,6 +22,11 @@
     margin: 12px 0px 12px 0px;
 }
 
+.list-item .tag
+{
+    color: #343a40;
+}
+
 .list-item-footer
 {
     font-size: 14px;

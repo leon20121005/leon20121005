@@ -42,3 +42,14 @@ function scrollWindow(target)
         }
     }
 }
+
+function convertDate(date)
+{
+    var sections = date.split("/");
+    return sections[0] + " / " + sections[1] + " / " + sections[2];
+}
+
+function convertCategory(category)
+{
+    return category.replace(" ", "-").toLowerCase();
+}

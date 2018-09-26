@@ -75,5 +75,12 @@
         "date": "2018/03/22",
         "category": "Chemistry",
         "text": "英文普通名：Tetracosahexaenoic acid (Nisinic acid)"
+    },
+    {
+        "title": "Android應用程式套件",
+        "path": "",
+        "date": "2018/07/30",
+        "category": "Android",
+        "text": "英文：Android application package，APK"
     }
 ]

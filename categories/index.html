@@ -54,24 +54,7 @@
         <div class="container content-wrap">
             <div id="categories">
                 <h3>分類</h3>
-                <ul id="category-list-container">
-                    <hr>
-                    <li class="category-list-item">Android</li>
-                    <hr>
-                    <li class="category-list-item">BeautifulSoup</li>
-                    <hr>
-                    <li class="category-list-item">Spark</li>
-                    <hr>
-                    <li class="category-list-item">Visual Studio Code</li>
-                    <hr>
-                    <li class="category-list-item">Java</li>
-                    <hr>
-                    <li class="category-list-item">Bootstrap</li>
-                    <hr>
-                    <li class="category-list-item">LINE Messaging API</li>
-                    <hr>
-                    <li class="category-list-item"><a class="category-list-item-link" href="/categories/chemistry">Chemistry</a></li>
-                </ul>
+                <ul id="category-list-container"></ul>
             </div>
         </div>
 
@@ -105,5 +88,24 @@
             var target = $(this).attr("href");
             scrollWindow(target);
         });
+
+        // 載入文章列表的JSON檔，載入成功之後產生分類列表
+        $.getJSON("/json/list.json", function(data)
+        {
+            createCategoryList(data);
+        });
+
+        function createCategoryList(data)
+        {
+            var categories = data.map(function lambda(article) {return article.category;});
+            categories = Array.from(new Set(categories));
+
+            for (index = 0; index < categories.length; index++)
+            {
+                var listItem = '<hr><li class="category-list-item">';
+                listItem += '<a class="category-list-item-link" href="/categories/' + convertCategory(categories[index]) + '">' + categories[index] + '</a></li>';
+                $("#category-list-container").append(listItem);
+            }
+        }
     </script>
 </html>
